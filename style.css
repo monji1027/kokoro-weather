@@ -1,0 +1,25 @@
+body {
+  background-color: #fff8f0;
+  font-family: "Zen Maru Gothic", sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+textarea {
+  border-radius: 10px;
+  border: 2px solid #ffc0cb;
+  padding: 10px;
+  background-color: #fff;
+}
+
+button {
+  background-color: #ffd6dc;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffb6c1;
+}
