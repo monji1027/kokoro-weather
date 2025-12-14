@@ -6,17 +6,31 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🌤 心の天気帳</h1>
+  <div class="diary-page">
+    <h1>🌤 心の天気帳</h1>
 
-  <p>今日の気持ちを書いてみよう！</p>
+    <p>今日の気持ちを書いてみよう！</p>
 
-  <textarea id="diary" rows="5" cols="40" placeholder="ここに日記を書く..."></textarea>
-  <br>
-  <button onclick="saveDiary()">保存する</button>
+    <textarea id="diary" rows="5" cols="40" placeholder="ここに日記を書く..."></textarea>
 
-  <h2>📘 保存された日記</h2>
-  <ul id="list"></ul>
+    <p>今日の感情をえらんでね：</p>
+    <div id="emotions">
+      <label><input type="radio" name="emotion" value="恐れ"> 恐れ</label>
+      <label><input type="radio" name="emotion" value="怒り"> 怒り</label>
+      <label><input type="radio" name="emotion" value="喜び"> 喜び</label>
+      <label><input type="radio" name="emotion" value="悲しみ"> 悲しみ</label>
+      <label><input type="radio" name="emotion" value="嫌悪"> 嫌悪</label>
+      <label><input type="radio" name="emotion" value="驚き"> 驚き</label>
+    </div>
+
+    <button onclick="saveDiary()">保存する</button>
+
+    <h2>📘 保存された日記</h2>
+    <ul id="list" class="diary-list"></ul>
+  </div>
 
   <script src="script.js"></script>
 </body>
+
+
 </html>
