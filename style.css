@@ -1,25 +1,146 @@
 body {
-  background-color: #fff8f0;
-  font-family: "Zen Maru Gothic", sans-serif;
-  text-align: center;
-  padding: 20px;
+  background-color: #fff8f0;         /* やさしいベージュ */
+  font-family: "Zen Maru Gothic", "M PLUS Rounded 1c", sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 40px 10px;
 }
 
+/* ノート1ページっぽい枠 */
+.diary-page {
+  background-color: #ffffff;
+  max-width: 600px;
+  width: 100%;
+  padding: 24px 20px 28px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 2px solid #ffe0ea;
+}
+
+/* タイトル */
+h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #ff6699;
+  text-align: center;
+}
+
+/* 説明テキスト */
+p {
+  margin: 8px 0;
+  text-align: left;
+}
+
+/* 日記入力欄 */
 textarea {
-  border-radius: 10px;
+  width: 100%;
+  border-radius: 12px;
   border: 2px solid #ffc0cb;
   padding: 10px;
   background-color: #fff;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+/* 感情ラジオボタンの並び */
+#emotions {
+  margin: 8px 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  font-size: 0.9rem;
 }
 
 button {
   background-color: #ffd6dc;
   border: none;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 999px;
   cursor: pointer;
+  font-weight: bold;
+  margin: 8px 0 16px;
 }
 
 button:hover {
   background-color: #ffb6c1;
 }
+
+/* 日記一覧（リスト全体） */
+.diary-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* ベースのカード（共通） */
+.diary-item {
+  background-color: #fffafc;
+  border-radius: 12px;
+  border: 1px solid #ffe0ea;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  text-align: left;
+
+  display: flex;              /* 横並びにする */
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* テキスト部分はできるだけ幅を取る */
+.diary-item span {
+  flex: 1;
+}
+
+/* 削除ボタン */
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #ff7777;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.delete-btn:hover {
+  color: #ff1744;
+}
+
+
+/* 感情ごとの色分け */
+.emotion-joy {
+  background-color: #fff9c4;   /* やさしい黄色 */
+  border-color: #ffe082;
+}
+
+.emotion-sad {
+  background-color: #e3f2fd;   /* うすい青 */
+  border-color: #90caf9;
+}
+
+.emotion-anger {
+  background-color: #ffebee;   /* うすい赤 */
+  border-color: #ef9a9a;
+}
+
+.emotion-fear {
+  background-color: #f3e5f5;   /* うすい紫っぽい不安カラー */
+  border-color: #ce93d8;
+}
+
+.emotion-disgust {
+  background-color: #e8f5e9;   /* うすい緑 */
+  border-color: #a5d6a7;
+}
+
+.emotion-surprise {
+  background-color: #fff3e0;   /* オレンジ寄りのびっくりカラー */
+  border-color: #ffcc80;
+}
+
+
+/* 1件分のカード（余白だけ） */
+.diary-list li {
+  margin-bottom: 8px;
+}
+
