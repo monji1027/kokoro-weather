@@ -101,57 +101,58 @@ function deleteEntry(index) {
   renderList(saved);
 }
 
-// ===== AIで感情を自動判定してラジオボタンに反映 =====
-async function autoSelectEmotion() {
-  const text = document.getElementById("diary").value;
-  if (!text) {
-    alert("まず日記を書いてね！");
-    return;
-  }
+// // ===== AIで感情を自動判定してラジオボタンに反映 =====
+// async function autoSelectEmotion() {
+//   const text = document.getElementById("diary").value;
+//   if (!text) {
+//     alert("まず日記を書いてね！");
+//     return;
+//   }
 
-  try {
-    const response = await fetch("/api/classifyEmotion", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ text: text }),
-    });
+//   try {
+//     const response = await fetch("/api/classifyEmotion", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ text: text }),
+//     });
 
-    const data = await response.json();
-    if (data.error) {
-      console.error("Emotion API error:", data.error);
-      alert("感情判定でエラーが起きました。時間をおいて試してください。");
-      return;
-    }
+//     const data = await response.json();
+//     if (data.error) {
+//       console.error("Emotion API error:", data.error);
+//       alert("感情判定でエラーが起きました。時間をおいて試してください。");
+//       return;
+//     }
 
-    // OpenAIからの result は JSON文字列（{"喜び":0.8,...}）を想定
-    const scores = JSON.parse(data.result);
+//     // OpenAIからの result は JSON文字列（{"喜び":0.8,...}）を想定
+//     const scores = JSON.parse(data.result);
 
-    const emotions = ["恐れ", "怒り", "喜び", "悲しみ", "嫌悪", "驚き"];
-    let best = emotions[0];
-    let bestScore = scores[best] ?? 0;
+//     const emotions = ["恐れ", "怒り", "喜び", "悲しみ", "嫌悪", "驚き"];
+//     let best = emotions[0];
+//     let bestScore = scores[best] ?? 0;
 
-    for (const e of emotions) {
-      const val = scores[e] ?? 0;
-      if (val > bestScore) {
-        best = e;
-        bestScore = val;
-      }
-    }
+//     for (const e of emotions) {
+//       const val = scores[e] ?? 0;
+//       if (val > bestScore) {
+//         best = e;
+//         bestScore = val;
+//       }
+//     }
 
-    // ラジオボタンに反映
-    const radio = document.querySelector(
-      `input[name="emotion"][value="${best}"]`
-    );
-    if (radio) {
-      radio.checked = true;
-      alert(`AIの推定結果：${best}（スコア ${bestScore.toFixed(2)}）を選びました`);
-    } else {
-      alert("感情の反映に失敗しました");
-    }
-  } catch (err) {
-    console.error("autoSelectEmotion error:", err);
-    alert("AIによる感情判定でエラーが起きました。");
-  }
-}
+//     // ラジオボタンに反映
+//     const radio = document.querySelector(
+//       `input[name="emotion"][value="${best}"]`
+//     );
+//     if (radio) {
+//       radio.checked = true;
+//       alert(`AIの推定結果：${best}（スコア ${bestScore.toFixed(2)}）を選びました`);
+//     } else {
+//       alert("感情の反映に失敗しました");
+//     }
+//   } catch (err) {
+//     console.error("autoSelectEmotion error:", err);
+//     alert("AIによる感情判定でエラーが起きました。");
+//   }
+// }
+
